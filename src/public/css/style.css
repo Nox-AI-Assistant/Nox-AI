@@ -1,0 +1,12 @@
+/* Import all component styles */
+@import 'components/base.css';
+@import 'components/navbar.css';
+@import 'components/hero.css';
+@import 'components/how-it-works.css';
+@import 'components/avatar.css';
+@import 'components/controls.css';
+@import 'components/response.css';
+@import 'components/footer.css';
+@import 'components/theme-switcher.css';
+@import 'components/faq.css';
+@import 'components/roadmap.css';

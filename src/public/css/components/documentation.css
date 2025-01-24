@@ -1,0 +1,317 @@
+/* Documentation Page Styles */
+.documentation {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 6rem auto 4rem;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Hero Section Styles */
+.hero {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleSlideIn 1s ease-out forwards;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #a5b4fc;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    animation: subtitleFadeIn 1s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+/* Floating Icons Animation */
+.floating-icon {
+    position: absolute;
+    opacity: 0.1;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-icon:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    font-size: 2rem;
+    animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+    top: 30%;
+    right: 20%;
+    font-size: 1.5rem;
+    animation-delay: 2s;
+}
+
+.floating-icon:nth-child(3) {
+    bottom: 25%;
+    left: 25%;
+    font-size: 1.8rem;
+    animation-delay: 4s;
+}
+
+/* Sidebar Styles */
+.doc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 6rem;
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.doc-nav {
+    background: rgba(10, 10, 31, 0.8);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(12px);
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.doc-nav h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.doc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doc-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.doc-nav a {
+    color: #a5b4fc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.doc-nav a:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    transform: translateX(4px);
+}
+
+/* Main Content Styles */
+.doc-content {
+    flex: 1;
+    max-width: 900px;
+}
+
+.doc-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.doc-section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.doc-section h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: #e0e0ff;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.doc-section p {
+    color: #a5b4fc;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Code Block Styles */
+.code-block {
+    margin: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.code-block:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.code-header span {
+    color: #a5b4fc;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: #3b82f6;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    color: #60a5fa;
+    transform: scale(1.1);
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.code-block code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes titleSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes subtitleFadeIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .documentation {
+        flex-direction: column;
+    }
+
+    .doc-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .doc-content {
+        padding: 0;
+    }
+}
+
+/* Light Theme Support */
+body:not(.dark-theme) .doc-nav {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+body:not(.dark-theme) .doc-nav a {
+    color: #1a1a3a;
+}
+
+body:not(.dark-theme) .doc-section h2 {
+    color: #1a1a3a;
+}
+
+body:not(.dark-theme) .doc-section p {
+    color: #4b5563;
+}
+
+body:not(.dark-theme) .code-block {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+body:not(.dark-theme) .code-block code {
+    color: #1a1a3a;
+}
+
+body:not(.dark-theme) .hero-subtitle {
+    color: #4b5563;
+}

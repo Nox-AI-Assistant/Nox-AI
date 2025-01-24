@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOX AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div id="app">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">NOX AI, Your Voice Assistant</h1>
+                <p class="hero-subtitle">Talk naturally with an AI that understands and responds to your voice.</p>
+                <div class="hero-buttons">
+                    <button class="hero-btn primary" onclick="document.getElementById('avatar-container').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-play"></i> Get Started
+                    </button>
+                    <button class="hero-btn secondary" onclick="window.location.href='/documentation.html'">
+                        <i class="fas fa-book"></i> Documentation
+                    </button>
+                    <button class="hero-btn secondary" onclick="document.getElementById('faq-container').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-question-circle"></i> FAQ
+                    </button>
+                </div>
+            </div>
+            <!-- Floating Icons -->
+            <i class="fas fa-microphone floating-icon"></i>
+            <i class="fas fa-robot floating-icon"></i>
+            <i class="fas fa-comments floating-icon"></i>
+        </section>
+
+        <div id="main-content">
+            <div id="avatar-container">
+                <div class="sound-wave">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <img src="/logo.png" alt="NOX" class="avatar-image">
+            </div>
+            <div id="controls">
+                <button id="start-btn"><i class="fas fa-microphone"></i> Start</button>
+                <button id="stop-btn"><i class="fas fa-stop"></i> Stop</button>
+            </div>
+            <div id="response">
+                <div class="logs-header">
+                    <h2 class="logs-title">LOGS NOX</h2>
+                    <div class="ready-indicator">Ready</div>
+                </div>
+                <div id="logs"></div>
+            </div>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-microphone step-icon"></i>
+                        <h3 class="step-title">Voice Input</h3>
+                        <p class="step-description">Speak naturally to NOX using your microphone. Advanced speech recognition captures your voice with high accuracy.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-brain step-icon"></i>
+                        <h3 class="step-title">AI Processing</h3>
+                        <p class="step-description">NOX's advanced AI processes your request, understanding context and intent to provide relevant responses.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-robot step-icon"></i>
+                        <h3 class="step-title">Natural Response</h3>
+                        <p class="step-description">Using cutting-edge text-to-speech technology, NOX responds in a natural, human-like voice.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-sync step-icon"></i>
+                        <h3 class="step-title">Continuous Learning</h3>
+                        <p class="step-description">NOX learns from interactions to provide increasingly accurate and personalized responses over time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <div id="faq-container"></div>
+
+            <!-- Next Update Section -->
+            <section class="next-update">
+                <h2 class="section-title">Coming Soon</h2>
+                <div class="update-content">
+                    <div class="update-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="update-title">Node.js Application in Development</h3>
+                    <p class="update-description">
+                        We're developing a powerful Node.js application that will transform NOX into your personal computer assistant. Soon, you'll be able to:
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <span>PC Control</span>
+                            <p class="feature-detail">Let NOX control your computer through voice commands</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Task Automation</span>
+                            <p class="feature-detail">Automate your regular tasks and daily routines</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>System Analysis</span>
+                            <p class="feature-detail">Get system diagnostics and optimization suggestions</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube Control</span>
+                            <p class="feature-detail">Navigate and control YouTube with voice</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <span>Web Searches</span>
+                            <p class="feature-detail">Search the web using natural voice commands</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sticky-note"></i>
+                            <span>Note Taking</span>
+                            <p class="feature-detail">Create and manage notes through voice</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap Section -->
+            <section class="roadmap" id="roadmap">
+                <h2 class="section-title">Development Roadmap</h2>
+                <div class="roadmap-content">
+                    <div class="phase">
+                        <div class="phase-header">
+                            <h3 class="phase-title">Phase 1: Foundation</h3>
+                            <div class="phase-status completed">
+                                <i class="fas fa-check"></i> Done
+                            </div>
+                        </div>
+                        <div class="phase-items">
+                            <div class="phase-item">Security Audits & Testing</div>
+                            <div class="phase-item">Building Community</div>
+                            <div class="phase-item">Marketing Launch</div>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-header">
+                            <h3 class="phase-title">Phase 2: Growth</h3>
+                            <div class="phase-status ongoing">
+                                <i class="fas fa-clock"></i> Active
+                            </div>
+                        </div>
+                        <div class="phase-items">
+                            <div class="phase-item">DEX & Liquidity</div>
+                            <div class="phase-item">Strategic Alliances</div>
+                            <div class="phase-item">Governance Setup</div>
+                            <div class="phase-item">Staking Platform</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="footer-container"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module">
+        import { initializeThemeSwitcher } from '/js/theme.js';
+
+        async function loadComponent(containerId, componentPath) {
+            try {
+                const response = await fetch(componentPath);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+                
+                if (containerId === 'navbar-container') {
+                    initializeThemeSwitcher();
+                }
+
+                if (containerId === 'faq-container') {
+                    document.querySelectorAll('.faq-question').forEach(question => {
+                        question.addEventListener('click', () => {
+                            const faqItem = question.parentElement;
+                            faqItem.classList.toggle('active');
+                        });
+                    });
+                }
+            } catch (error) {
+                console.error(`Error loading component ${componentPath}:`, error);
+            }
+        }
+
+        // Scroll to Top Button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('navbar-container', '/components/navbar.html');
+            loadComponent('faq-container', '/components/faq.html');
+            loadComponent('footer-container', '/components/footer.html');
+        });
+    </script>
+</body>
+</html>

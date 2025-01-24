@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOX AI Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components/documentation.css">
+    <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Documentation</h1>
+            <p class="hero-subtitle">Learn how to use NOX AI and integrate it into your projects.</p>
+        </div>
+        <!-- Floating Icons -->
+        <i class="fas fa-book floating-icon"></i>
+        <i class="fas fa-code floating-icon"></i>
+        <i class="fas fa-lightbulb floating-icon"></i>
+    </section>
+
+    <div class="documentation">
+        <aside class="doc-sidebar">
+            <div class="doc-nav">
+                <h3>Contents</h3>
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#voice-commands">Voice Commands</a></li>
+                    <li><a href="#api-reference">API Reference</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="doc-content">
+            <section id="getting-started" class="doc-section">
+                <h2>Getting Started</h2>
+                <p>NOX is an advanced AI voice assistant that uses cutting-edge technologies for natural language processing and speech synthesis.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Project Structure</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code>nox-assistant/
+├── src/
+│   ├── config/
+│   │   └── index.js         # Configuration settings
+│   ├── nox/
+│   │   ├── assistant.js     # Core assistant logic
+│   │   ├── commands.js      # Command definitions
+│   │   └── responses.js     # Response templates
+│   ├── speech/
+│   │   ├── pipeline.js      # Audio processing pipeline
+│   │   ├── recognition.js   # Speech recognition
+│   │   └── tts.js          # Text-to-speech
+│   └── server/
+│       └── index.js         # Express server setup
+└── package.json</code></pre>
+                </div>
+            </section>
+
+            <section id="installation" class="doc-section">
+                <h2>Installation</h2>
+                <p>Follow these steps to set up NOX AI in your environment:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Installation Commands</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code># Clone the repository
+git clone https://github.com/your-username/nox-assistant.git
+
+# Install dependencies
+cd nox-assistant
+npm install
+
+# Start the development server
+npm run dev</code></pre>
+                </div>
+            </section>
+
+            <section id="configuration" class="doc-section">
+                <h2>Configuration</h2>
+                <p>Configure NOX by setting up your environment variables:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Configuration Example</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code>// src/config/index.js
+export const config = {
+  replicate: {
+    apiToken: process.env.REPLICATE_API_TOKEN,
+    model: 'lucataco/xtts-v2',
+    speaker: 'path/to/speaker.wav'
+  },
+  openai: {
+    apiKey: process.env.OPENAI_API_KEY
+  },
+  audio: {
+    outputDir: 'path/to/temp'
+  }
+};</code></pre>
+                </div>
+            </section>
+
+            <section id="voice-commands" class="doc-section">
+                <h2>Voice Commands</h2>
+                <p>NOX responds to various voice commands. Here are some examples:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Voice Command Examples</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code>// src/nox/commands.js
+export const COMMANDS = {
+  GREETING: 'hello nox',
+  STOP: 'stop',
+  HELP: 'help'
+};
+
+export function parseCommand(text) {
+  const command = text.toLowerCase().trim();
+  
+  if (command.includes(COMMANDS.GREETING)) {
+    return { type: 'GREETING' };
+  }
+  if (command.includes(COMMANDS.STOP)) {
+    return { type: 'STOP' };
+  }
+  if (command.includes(COMMANDS.HELP)) {
+    return { type: 'HELP' };
+  }
+  
+  return { type: 'UNKNOWN' };
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="api-reference" class="doc-section">
+                <h2>API Reference</h2>
+                <p>NOX exposes several API endpoints for integration:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>API Usage Example</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code>// Example WebSocket connection
+const socket = io();
+
+socket.on('connect', () => {
+    console.log('Connected to NOX');
+});
+
+// Send audio data
+socket.emit('audio-data', audioBuffer);
+
+// Receive responses
+socket.on('response', (message) => {
+    console.log('NOX says:', message);
+});
+
+// Handle audio playback
+socket.on('audio', (data) => {
+    const audio = new Audio(data.url);
+    audio.play();
+});</code></pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="footer-container"></div>
+
+    <script type="module">
+        import { initializeThemeSwitcher } from '/js/theme.js';
+
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const icon = button.querySelector('i');
+                icon.className = 'fas fa-check';
+                setTimeout(() => {
+                    icon.className = 'fas fa-copy';
+                }, 2000);
+            });
+        }
+        window.copyCode = copyCode;
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.doc-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Scroll to Top Button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        async function loadComponent(containerId, componentPath) {
+            try {
+                const response = await fetch(componentPath);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+                
+                if (containerId === 'navbar-container') {
+                    initializeThemeSwitcher();
+                }
+            } catch (error) {
+                console.error(`Error loading component ${componentPath}:`, error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('navbar-container', '/components/navbar.html');
+            loadComponent('footer-container', '/components/footer.html');
+        });
+    </script>
+</body>
+</html>
